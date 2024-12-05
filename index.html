@@ -9,6 +9,46 @@
   box-sizing: border-box;
 }
 
+.slider {
+	--totSlides: 9;
+	--slideWidth: 160px;
+	--slideHeight: 160px;
+	--animationSpeed: calc(2s * var(--totSlides));
+	height: var(--slideHeight);
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.slider .slides-track {
+	animation: scroll var(--animationSpeed) linear infinite;
+	display: flex;
+	width: calc(var(--slideWidth) * var(--totSlides) * 2);
+}
+
+.slider .slide {
+	height: 250px;
+	width: var(--slideWidth);
+	overflow: hidden;
+}
+
+.slider .slide img {
+	height: 150px;
+	width: 150px;
+	object-fit: cover;
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(var(--slideWidth) * var(--totSlides) * -1));
+	}
+}
+
+
 /* Style the body */
 body {
   font-family: Georgia;
@@ -17,7 +57,7 @@ body {
 
 /* Header/logo Title */
 .header {
-  padding: 30px;
+  padding: 2em 0 2em 0;
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(golf.jpg);
   height: 50%;
@@ -27,12 +67,31 @@ body {
   position: relative;
   color: white;
 }
-
 /* Increase the font size of the heading */
 .header h1 {
   font-size: 70px;
 }
+ul {
+  list-style-type: none;
+  margin:0;
+  padding: 5px;
+  overflow: hidden;
+  color: #f1f1f1;
+  background-color: #f1f1f1;
+  pointer-events: none;
+}
 
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 /* Column container */
 .row {  
   display: -ms-flexbox; /* IE10 */
@@ -41,13 +100,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-}
-
-.photorow {  
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
 }
 
 /* Create two unequal columns that sits next to each other */
@@ -62,6 +114,7 @@ body {
   max-height: 600px;
   height: 100%;
   max-width: 300px;
+  margin-top: 15px;
 }
 
 /* Main column */
@@ -74,193 +127,118 @@ body {
   overflow: hidden;
   min-width: 450px;
   max-width: 950px;
+  margin-top: 15px;
 }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
+footer {
+  -ms-flex:20%; /* IE10 */
+  flex: 20%;
   background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-/* Create four equal columns that sits next to each other */
-.column {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    -ms-flex: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    -ms-flex: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
-}
-h2 {text-align: center;}
-  .pdf{
-    width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .photoflex {
-  background-color: #ccc;
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  padding: 20px;
   border-radius: 15px;
-  }
+  overflow: hidden;
+  max-height: 600px;
+  height: 100%;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
  iframe{
   width: 100%;
   height: 85vh;
  }
+
+ 
+
 </style>
 </head>
 <body>
-
 <div class="header">
   <h1>Brandon Williams</h1>
 </div>
-
-<div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'Resume')" id="defaultOpen">Resume</button>
-    <button class="tablinks" onclick="openTab(event, 'Works')">Works</button>
-  </div>
-
-  <div id="Resume" class="tabcontent">
+<ul>
+  <li>.</li>
+</ul>
+  <div id="Resume" >
     <div class="row">
         <div class="side">
           <h2>About Me</h2> 
           <center>
           <img src="aboutme.jpg" style="height: 200px; border-radius: 20%;">
           </center>
-          <p>Hello! I am a hard working and reliable individual who understands the value and work it takes to provide good products. Having worked 
-            in cutomer service, and being self taught on a variety of machines and programs to sell my own products, I am willing and eager to learn new skills 
-            and motivated to see a great finished product. Please click the "Works" tab above to see examples of my work. Thank you!
-
-            </p>
+          <p>Hello! I am hardworking and reliable individual who understands the work that goes behind making a successful business.
+           Having worked in retail, and being self-taught on a variety of machines and programs to sell my own products, I am willing, eager, and motivated to learn new skills and see a
+           great finished product. Feel free to check out some examples of my works below. Thank you!
+          </p>
         </div>
         <div class="main">
           <h2>Resume</h2>
-          <iframe src="https://drive.google.com/file/d/1GMJUddXj-0he3x6GJoS8-EtjI2I4EnSn/preview" allow="autoplay"></iframe>
-          <a href="https://drive.google.com/file/d/1GMJUddXj-0he3x6GJoS8-EtjI2I4EnSn/view?usp=sharing">Link to Google Drive for download</a>
+          <iframe src="https://drive.google.com/file/d/1MukY_csqZ7j1L5DHoD3frg7_1877dp9E/preview" allow="autoplay"></iframe>
+          <a href="https://drive.google.com/file/d/1MukY_csqZ7j1L5DHoD3frg7_1877dp9E/view?usp=sharing">Link to Google Drive for download</a>
         </div>
       </div>
   </div>
-
-  <div id="Works" class="tabcontent">
-   <div class = "photoflex">
-    <p style="font-size: 50px; text-align: center;">Here is a brief compilation of some of my projects.</p>
-  </div>
-    <!-- Photo Grid -->
-    
-<div class="photorow"> 
-    <div class="column">
-      <img src="websitepic2.jpg" style="width:100%">
-      <img src="websitepic27.jpg" style="width:100%">
-      <img src="websitepic18.png" style="width:100%">
-      <img src="websitepic1.jpg" style="width:100%">
-      <img src="websitepic9.jpg" style="width:100%">
-      <img src="websitepic6.jpg" style="width:100%">
-      <img src="websitepic21.jpg" style="width:100%">
+  <footer>
+    <div class="slider">
+      <div class="slides-track">
+        <div class="slide">
+          <img src="websitepic1.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic3.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic4.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic29.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic6.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic7.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic8.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic9.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic30.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic10.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic14.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic28.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic11.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic2.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic12.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic15.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic25.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="websitepic27.jpg" alt="" />
+        </div>
+      </div>
     </div>
-    <div class="column">
-      <img src="websitepic4.jpg" style="width:100%">
-      <img src="websitepic28.jpg" style="width:100%">
-      <img src="websitepic15.jpg" style="width:100%">
-      <img src="websitepic13.jpg" style="width:100%">
-      <img src="websitepic10.jpg" style="width:100%">
-      <img src="websitepic17.jpg"style="width:100%">
-      <img src="websitepic22.jpg" style="width:100%">
-    </div>  
-    <div class="column">
-      <img src="websitepic12.jpg" style="width:100%">
-      <img src="websitepic7.jpg" style="width:100%">
-      <img src="websitepic5.jpg" style="width:100%">
-      <img src="websitepic11.jpg" style="width:100%">
-      <img src="websitepic19.jpg" style="width:100%">
-      <img src="websitepic23.jpg" style="width:100%">
-      <img src="websitepic25.jpg" style="width:100%">
-    </div>
-    <div class="column">
-      <img src="websitepic16.jpg" style="width:100%">
-      <img src="websitepic8.jpg" style="width:100%">
-      <img src="websitepic3.jpg" style="width:100%">
-      <img src="websitepic14.jpg" style="width:100%">
-      <img src="websitepic20.jpg" style="width:100%">
-      <img src="websitepic24.jpg" style="width:100%">
-      <img src="websitepic26.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <script>
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-
-    </script>
-
+  </footer>
 </body>
 </html>
